@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerbang Imajinasi & Angka: Media Interaktif Teks Cerita Fantasi & Numerasi</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fantasy: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            850: '#3b0764',
+                        },
+                        goldAccent: '#fbbf24',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #7c3aed;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-fantasy-50 font-sans text-gray-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Header & Navigasi -->
+    <header class="bg-fantasy-850 text-white shadow-xl sticky top-0 z-50 border-b border-purple-500/30">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-goldAccent/20 p-2.5 rounded-xl text-goldAccent border border-goldAccent/30">
+                    <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Gerbang Imajinasi & Numerasi</h1>
+                    <p class="text-xs text-purple-200">Bahasa Indonesia Kelas 7 • Kurikulum Merdeka + Literasi Numerasi</p>
+                </div>
+            </div>
+            
+            <!-- Navbar Menu Buttons -->
+            <nav class="flex space-x-1 sm:space-x-2 mt-2 sm:mt-0 overflow-x-auto py-1">
+                <button onclick="switchTab('beranda')" id="btn-beranda" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium transition bg-white/20 text-white flex items-center space-x-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-house"></i><span>Beranda</span>
+                </button>
+                <button onclick="switchTab('literasi')" id="btn-literasi" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium transition text-purple-200 hover:bg-white/10 flex items-center space-x-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-book-open-reader"></i><span>1. Teks Numerik</span>
+                </button>
+                <button onclick="switchTab('materi')" id="btn-materi" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium transition text-purple-200 hover:bg-white/10 flex items-center space-x-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-scroll"></i><span>2. Materi & Logika</span>
+                </button>
+                <button onclick="switchTab('game')" id="btn-game" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium transition text-purple-200 hover:bg-white/10 flex items-center space-x-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-calculator"></i><span>3. Mini-Game Angka</span>
+                </button>
+                <button onclick="switchTab('kuis')" id="btn-kuis" class="nav-btn px-3 py-1.5 rounded-lg text-sm font-medium transition text-purple-200 hover:bg-white/10 flex items-center space-x-1.5 whitespace-nowrap">
+                    <i class="fa-solid fa-award"></i><span>4. Kuis HOTS & Numerasi</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-6xl w-full mx-auto p-4 sm:p-6">
+
+        <!-- TAB 1: BERANDA -->
+        <section id="tab-beranda" class="tab-content fade-in space-y-6">
+            <div class="bg-gradient-to-br from-fantasy-700 via-fantasy-850 to-gray-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden border border-purple-500/20">
+                <div class="absolute right-0 bottom-0 opacity-10 transform translate-x-10 translate-y-10">
+                    <i class="fa-solid fa-compass-drafting text-9xl text-goldAccent"></i>
+                </div>
+                <div class="relative z-10 max-w-2xl">
+                    <span class="bg-goldAccent text-gray-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Lintas Mata Pelajaran • Sastra & Kuantitatif</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mt-3 mb-4 text-white">Menjelajah Cerita Fantasi Melalui Nalar Angka & Waktu</h2>
+                    <p class="text-purple-100 text-sm sm:text-base leading-relaxed mb-6">
+                        Menyelami teks cerita fantasi kini lebih menantang! Gabungkan pemahaman struktur sastra dengan penalaran numerasi cerita ala TKA (Tes Kemampuan Akademik/AKM) untuk menghitung selisih waktu dimensi dan sisa energi sihir.
+                    </p>
+                    <button onclick="switchTab('literasi')" class="bg-goldAccent hover:bg-amber-400 text-gray-900 font-bold px-6 py-3 rounded-xl shadow-lg transition flex items-center space-x-2">
+                        <span>Mulai Petualangan Literasi Numerik</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Peta Modul Cepat -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div onclick="switchTab('literasi')" class="bg-white p-5 rounded-2xl shadow-sm border border-purple-100 hover:shadow-md hover:border-fantasy-600 transition cursor-pointer group">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 text-fantasy-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-1">1. Teks Fantasi Numerik</h3>
+                    <p class="text-xs text-gray-500">Membaca kisah penjelajah waktu berbasis data kuantitatif.</p>
+                </div>
+                <div onclick="switchTab('materi')" class="bg-white p-5 rounded-2xl shadow-sm border border-purple-100 hover:shadow-md hover:border-fantasy-600 transition cursor-pointer group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-scroll"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-1">2. Struktur & Logika Angka</h3>
+                    <p class="text-xs text-gray-500">Menghubungkan struktur cerita dengan informasi tersirat.</p>
+                </div>
+                <div onclick="switchTab('game')" class="bg-white p-5 rounded-2xl shadow-sm border border-purple-100 hover:shadow-md hover:border-fantasy-600 transition cursor-pointer group">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-1">3. Mini-Game Angka</h3>
+                    <p class="text-xs text-gray-500">Misi hitung cepat perjalanan portal waktu dimensi.</p>
+                </div>
+                <div onclick="switchTab('kuis')" class="bg-white p-5 rounded-2xl shadow-sm border border-purple-100 hover:shadow-md hover:border-fantasy-600 transition cursor-pointer group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-square-poll-vertical"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-1">4. Kuis HOTS + Numerasi</h3>
+                    <p class="text-xs text-gray-500">Soal pilihan ganda gabungan sastra dan penalaran TKA.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: BAGIAN 1 - LITERASI KRITIS & TEKS FANTASI NUMERIK -->
+        <section id="tab-literasi" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-purple-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="bg-fantasy-600 text-white p-3 rounded-2xl">
+                        <i class="fa-solid fa-book-open-reader text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-fantasy-600 uppercase tracking-wider">Bagian 1: Literasi Teks Fantasi Numerik</span>
+                        <h2 class="text-2xl font-bold text-gray-800">Kisah: "Penjelajah Waktu dan Kristal Chronos"</h2>
+                    </div>
+                </div>
+
+                <div class="prose max-w-none text-gray-700 leading-relaxed space-y-4 bg-purple-50/50 p-6 rounded-2xl border border-purple-200">
+                    <p>
+                        Arka menatap layar kompas kristal di tangannya. Sebagai penjelajah muda di Dunia Chronia, ia harus melintasi 3 gerbang dimensi untuk mengumpulkan pecahan energi sebelum gerbang tertutup secara permanen dalam waktu <strong>120 menit</strong> ke depan.
+                    </p>
+                    <p>
+                        Gerbang pertama (Dimensi Es) berada pada jarak <strong>15 kilometer</strong> dan dapat ditempuh dengan menaiki burung Gryphon berkecepatan 30 km/jam. Gerbang kedua memerlukan waktu terbang selama <strong>45 menit</strong> menuju Dunia Kristal. Sisa waktu tersebut harus ia gunakan secara cermat agar tidak terjebak selamanya di antara dimensi waktu yang terus melambat.
+                    </p>
+                </div>
+
+                <!-- Kotak Refleksi Nalar Kritis & Numerasi -->
+                <div class="mt-6 p-6 bg-amber-50 rounded-2xl border border-amber-200">
+                    <h3 class="font-bold text-amber-900 text-lg mb-2 flex items-center space-x-2">
+                        <i class="fa-solid fa-lightbulb text-goldAccent"></i>
+                        <span>Refleksi Nalar Kritis & Numerasi Siswa:</span>
+                    </h3>
+                    <p class="text-gray-700 text-sm mb-4">
+                        Analisis teks di atas dengan menjawab pertanyaan pemantik berbasis kuantitatif berikut:
+                    </p>
+                    <div class="space-y-3">
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-amber-100">
+                            <p class="font-medium text-gray-800 text-sm mb-2">1. Berapa menit waktu yang dihabiskan Arka untuk menempuh perjalanan ke Dimensi Es (jarak 15 km dengan kecepatan gryphon 30 km/jam)?</p>
+                            <input type="text" placeholder="Tuliskan perhitungan dan analisis waktu di sini..." class="w-full p-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-fantasy-600">
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-amber-100">
+                            <p class="font-medium text-gray-800 text-sm mb-2">2. Jika total batas waktu adalah 120 menit, berapa sisa waktu yang dimiliki Arka setelah melewati Dimensi Es dan Dimensi Kristal (45 menit)?</p>
+                            <input type="text" placeholder="Tuliskan analisis sisa waktu di sini..." class="w-full p-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-fantasy-600">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-end">
+                    <button onclick="switchTab('materi')" class="bg-fantasy-600 hover:bg-fantasy-700 text-white font-bold px-6 py-3 rounded-xl transition flex items-center space-x-2 text-sm shadow-md">
+                        <span>Lanjut ke Materi Struktur & Logika Angka</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: BAGIAN 2 - PENDALAMAN MATERI -->
+        <section id="tab-materi" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-purple-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="bg-amber-500 text-white p-3 rounded-2xl">
+                        <i class="fa-solid fa-scroll text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Bagian 2: Pendalaman Materi</span>
+                        <h2 class="text-2xl font-bold text-gray-800">Struktur Cerita Fantasi & Integrasi Numerasi Cerita</h2>
+                    </div>
+                </div>
+
+                <p class="text-gray-600 text-sm mb-6">
+                    Dalam Kurikulum Merdeka, literasi tidak hanya soal kata-kata, tetapi juga kemampuan memproses informasi kuantitatif (numerasi) yang tersirat di dalam alur cerita. Pelajari hubungan keduanya:
+                </p>
+
+                <!-- Grid Materi -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    
+                    <!-- Struktur Teks -->
+                    <div class="bg-purple-50/50 p-6 rounded-2xl border border-purple-200 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-fantasy-600 text-white flex items-center justify-center font-bold">1</div>
+                                <h3 class="text-xl font-bold text-purple-950">Struktur Cerita Fantasi</h3>
+                            </div>
+                            <ul class="space-y-3 text-xs sm:text-sm text-gray-700">
+                                <li class="bg-white p-3 rounded-xl border border-purple-100">
+                                    <strong>Orientasi:</strong> Pengenalan latar, tokoh, serta parameter awal (misal: batas waktu misi, persediaan kristal sihir).
+                                 </li>
+                                <li class="bg-white p-3 rounded-xl border border-purple-100">
+                                    <strong>Komplikasi:</strong> Masalah berkembang, memerlukan perhitungan waktu, jarak, atau takaran ramuan yang tepat untuk melewatinya.
+                                </li>
+                                <li class="bg-white p-3 rounded-xl border border-purple-100">
+                                    <strong>Resolusi:</strong> Penyelesaian konflik yang dibuktikan dengan pencapaian kuantitatif (target waktu tercapai atau misi sukses).
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Numerasi Cerita (TKA) -->
+                    <div class="bg-amber-50/50 p-6 rounded-2xl border border-amber-200 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold">2</div>
+                                <h3 class="text-xl font-bold text-amber-950">Unsur Numerasi Cerita</h3>
+                            </div>
+                            <ul class="space-y-3 text-xs sm:text-sm text-gray-700">
+                                <li class="bg-white p-3 rounded-xl border border-amber-100">
+                                    <strong>Analisis Data Waktu & Kecepatan:</strong> Menerapkan rumus kecepatan dan waktu tempuh ($t = \frac{s}{v}$) dalam narasi petualangan magis.
+                                </li>
+                                <li class="bg-white p-3 rounded-xl border border-amber-100">
+                                    <strong>Kalkulasi Sumber Daya:</strong> Menghitung pengurangan dan penambahan energi kristal sihir atau koin ajaib.
+                                </li>
+                                <li class="bg-white p-3 rounded-xl border border-amber-100">
+                                    <strong>Logika Kuantitatif Alur:</strong> Menguji kebenaran urutan waktu kejadian berdasarkan data numerik teks.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex justify-between">
+                    <button onclick="switchTab('literasi')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Kembali
+                    </button>
+                    <button onclick="switchTab('game')" class="bg-fantasy-600 hover:bg-fantasy-700 text-white font-bold px-6 py-2.5 rounded-xl transition flex items-center space-x-2 text-sm shadow-md">
+                        <span>Lanjut ke Mini-Game Hitung Cepat Portal Waktu</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: BAGIAN 3 - MINI-GAME (MISI HITUNG CEPAT PORTAL WAKTU) -->
+        <section id="tab-game" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-purple-100">
+                <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-indigo-600 text-white p-3 rounded-2xl">
+                            <i class="fa-solid fa-calculator text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">Bagian 3: Gamifikasi Numerasi Cerita</span>
+                            <h2 class="text-2xl font-bold text-gray-800">Misi: Hitung Cepat Portal Waktu</h2>
+                        </div>
+                    </div>
+                    <!-- Skor & Status -->
+                    <div class="flex items-center space-x-4 bg-purple-50 px-4 py-2 rounded-xl border border-purple-200">
+                        <div class="text-center">
+                            <span class="text-xs text-gray-500 block">Poin Petualangan</span>
+                            <span id="game-score" class="font-bold text-fantasy-600 text-lg">0</span>
+                        </div>
+                        <div class="h-6 w-px bg-purple-200"></div>
+                        <div class="text-center">
+                            <span class="text-xs text-gray-500 block">Tantangan</span>
+                            <span id="game-progress" class="font-bold text-gray-800 text-sm">1 / 3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kontainer Game Numerasi -->
+                <div id="game-container" class="bg-purple-50/50 p-6 rounded-2xl border border-purple-200 space-y-6">
+                    <div class="bg-white p-5 rounded-xl shadow-sm border border-purple-100">
+                        <span id="game-stage-badge" class="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-1 rounded-md">Tantangan Numerasi 1</span>
+                        <p id="game-instruction" class="text-gray-800 font-bold text-base mt-3 leading-relaxed">
+                            Pecahkan soal cerita berbasis numerasi berikut untuk membuka gerbang dimensi!
+                        </p>
+                    </div>
+
+                    <!-- Pilihan Kartu Angka / Jawaban -->
+                    <div id="game-options" class="grid grid-cols-1 gap-3">
+                        <!-- Diisi via JavaScript -->
+                    </div>
+
+                    <!-- Feedback / Umpan Balik -->
+                    <div id="game-feedback" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+                </div>
+
+                <!-- Tampilan Selesai Game -->
+                <div id="game-complete" class="hidden text-center py-8 space-y-4">
+                    <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-3xl mx-auto shadow-sm">
+                        <i class="fa-solid fa-crown text-goldAccent"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Luar Biasa! Semua Portal Waktu Terbuka</h3>
+                    <p id="game-final-message" class="text-gray-600 text-sm max-w-md mx-auto">
+                        Kamu berhasil memadukan daya imajinasi cerita fantasi dan penalaran numerasi dengan sangat cemerlang!
+                    </p>
+                    <div class="pt-4 flex justify-center space-x-3">
+                        <button onclick="resetGame()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold px-5 py-2.5 rounded-xl transition text-sm">
+                            <i class="fa-solid fa-rotate-right mr-1"></i> Main Lagi
+                        </button>
+                        <button onclick="switchTab('kuis')" class="bg-fantasy-600 hover:bg-fantasy-700 text-white font-bold px-6 py-2.5 rounded-xl transition text-sm shadow-md">
+                            Lanjut ke Kuis HOTS + Numerasi <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                    <button onclick="switchTab('materi')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Kembali
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: BAGIAN 4 - KUIS FORMATIF EVALUASI HOTS + NUMERASI -->
+        <section id="tab-kuis" class="tab-content hidden fade-in space-y-6">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-purple-100">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="bg-emerald-600 text-white p-3 rounded-2xl">
+                        <i class="fa-solid fa-award text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Bagian 4: Evaluasi Formatif</span>
+                        <h2 class="text-2xl font-bold text-gray-800">Kuis HOTS & Numerasi Teks Cerita Fantasi</h2>
+                    </div>
+                </div>
+
+                <p class="text-gray-600 text-sm mb-6">
+                    Jawablah 5 soal pilihan ganda campuran berbasis penalaran sastra fantasi dan numerasi cerita ala TKA Matematika berikut!
+                </p>
+
+                <!-- Daftar Soal Kuis -->
+                <div id="quiz-container" class="space-y-6">
+                    
+                    <!-- Soal 1 -->
+                    <div class="bg-purple-50/50 p-5 rounded-2xl border border-purple-200 space-y-3 quiz-card" data-qid="0">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-fantasy-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 1 dari 5</span>
+                            <span class="text-xs text-gray-500 font-medium">Level: Analisis Waktu & Struktur (TKA)</span>
+                        </div>
+                        <p class="font-bold text-gray-800 text-sm sm:text-base">
+                            Dalam cerita penjelajahan waktu, Arka terbang sejauh <strong>24 km</strong> menuju Pulau Langit dengan kecepatan Gryphon <strong>8 km/jam</strong>. Berapa jam waktu yang dibutuhkan Arka untuk sampai, dan termasuk dalam bagian struktur apakah peristiwa tersebut?
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q0" value="0" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">A. 2 jam, bagian Orientasi pengenalan awal cerita.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q0" value="1" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">B. 3 jam, bagian Komplikasi (perjalanan penuh rintangan menuju lokasi konflik).</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q0" value="2" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">C. 4 jam, bagian Resolusi akhir cerita.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q0" value="3" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">D. 12 jam, bagian Koda.</span>
+                            </label>
+                        </div>
+                        <div id="expl-0" class="hidden p-3 rounded-lg text-xs mt-2 bg-purple-100 border border-purple-300 text-purple-950">
+                            <strong>Analisis:</strong> Jawaban benar adalah <strong>B</strong>. Waktu = $\frac{24}{8} = 3$ jam. Perjalanan menghadapi rintangan antar-tempat masuk dalam struktur komplikasi.
+                        </div>
+                    </div>
+
+                    <!-- Soal 2 -->
+                    <div class="bg-purple-50/50 p-5 rounded-2xl border border-purple-200 space-y-3 quiz-card" data-qid="1">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-fantasy-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 2 dari 5</span>
+                            <span class="text-xs text-gray-500 font-medium">Level: Kalkulasi Sumber Daya Sihir</span>
+                        </div>
+                        <p class="font-bold text-gray-800 text-sm sm:text-base">
+                            Kantong sihir penyihir tua berisi <strong>150 butir</strong> kristal cahaya. Setiap kali melewati pintu gerbang dimensi, sebanyak <strong>28 butir</strong> kristal berubah menjadi debu bintang. Jika ia melewati 4 gerbang dimensi, berapa sisa kristal cahaya di kantongnya?
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q1" value="0" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">A. 38 butir kristal.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q1" value="1" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">B. 42 butir kristal.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q1" value="2" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">C. 62 butir kristal.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q1" value="3" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">D. 112 butir kristal.</span>
+                            </label>
+                        </div>
+                        <div id="expl-1" class="hidden p-3 rounded-lg text-xs mt-2 bg-purple-100 border border-purple-300 text-purple-950">
+                            <strong>Analisis:</strong> Jawaban benar adalah <strong>A</strong>. Total kristal yang berkurang = $4 \times 28 = 112$. Sisa kristal = $150 - 112 = 38$ butir.
+                        </div>
+                    </div>
+
+                    <!-- Soal 3 -->
+                    <div class="bg-purple-50/50 p-5 rounded-2xl border border-purple-200 space-y-3 quiz-card" data-qid="2">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-fantasy-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 3 dari 5</span>
+                            <span class="text-xs text-gray-500 font-medium">Level: Logika Waktu & Resolusi</span>
+                        </div>
+                        <p class="font-bold text-gray-800 text-sm sm:text-base">
+                            Sebuah misi penyelamatan di kerajaan kristal dimulai pukul 08.00 pagi. Perjalanan ke menara utama memakan waktu <strong>75 menit</strong>, dan ritual pemulihan sihir memakan waktu <strong>45 menit</strong>. Pukul berapakah misi tersebut selesai (Resolusi tercapai)?
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q2" value="0" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">A. Pukul 09.30 pagi.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q2" value="1" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">B. Pukul 10.00 pagi.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q2" value="2" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">C. Pukul 10.20 pagi.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q2" value="3" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">D. Pukul 11.00 siang.</span>
+                            </label>
+                        </div>
+                        <div id="expl-2" class="hidden p-3 rounded-lg text-xs mt-2 bg-purple-100 border border-purple-300 text-purple-950">
+                            <strong>Analisis:</strong> Jawaban benar adalah <strong>B</strong>. Total waktu kegiatan = $75 + 45 = 120$ menit (= 2 jam). Pukul 08.00 + 2 jam = Pukul 10.00 pagi.
+                        </div>
+                    </div>
+
+                    <!-- Soal 4 -->
+                    <div class="bg-purple-50/50 p-5 rounded-2xl border border-purple-200 space-y-3 quiz-card" data-qid="3">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-fantasy-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 4 dari 5</span>
+                            <span class="text-xs text-gray-500 font-medium">Level: Analisis Kebahasaan & Kuantitatif</span>
+                        </div>
+                        <p class="font-bold text-gray-800 text-sm sm:text-base">
+                            Mengapa penyisipan data angka (seperti waktu, jarak, dan jumlah) dalam teks cerita fantasi dapat meningkatkan daya nalar kritis pembaca remaja?
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q3" value="0" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">A. Karena membuat cerita fantasi menjadi mirip buku rumus matematika murni tanpa unsur imajinasi.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q3" value="1" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">B. Karena melatih pembaca tidak hanya berimajinasi liar, tetapi juga memperhitungkan logika sebab-akibat secara kuantitatif.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q3" value="2" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">C. Supaya jumlah halaman buku cerita bertambah tebal.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q3" value="3" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">D. Agar pembaca dapat menghafal seluruh tanggal kejadian sejarah dunia nyata.</span>
+                            </label>
+                        </div>
+                        <div id="expl-3" class="hidden p-3 rounded-lg text-xs mt-2 bg-purple-100 border border-purple-300 text-purple-950">
+                            <strong>Analisis:</strong> Jawaban benar adalah <strong>B</strong>. Numerasi dalam sastra melatih keterpaduan nalar kritis, logika waktu, dan pemecahan masalah.
+                        </div>
+                    </div>
+
+                    <!-- Soal 5 -->
+                    <div class="bg-purple-50/50 p-5 rounded-2xl border border-purple-200 space-y-3 quiz-card" data-qid="4">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-fantasy-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 5 dari 5</span>
+                            <span class="text-xs text-gray-500 font-medium">Level: Pemecahan Masalah Skala Waktu</span>
+                        </div>
+                        <p class="font-bold text-gray-800 text-sm sm:text-base">
+                            Dalam pertempuran akhir, mantra pelindung istana membutuhkan waktu pengisian <strong>3 jam 20 menit</strong>. Jika penjaga istana memulai pengisian pada pukul 13.15, pada pukul berapakah mantra tersebut aktif sepenuhnya?
+                        </p>
+                        <div class="space-y-2 pt-2">
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q4" value="0" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">A. Pukul 15.35</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q4" value="1" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">B. Pukul 16.35</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q4" value="2" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">C. Pukul 16.50</span>
+                            </label>
+                            <label class="flex items-start space-x-3 p-3 bg-white rounded-xl border border-purple-100 hover:bg-purple-50 cursor-pointer transition">
+                                <input type="radio" name="q4" value="3" class="mt-1 text-fantasy-600">
+                                <span class="text-xs sm:text-sm text-gray-700">D. Pukul 17.00</span>
+                            </label>
+                        </div>
+                        <div id="expl-4" class="hidden p-3 rounded-lg text-xs mt-2 bg-purple-100 border border-purple-300 text-purple-950">
+                            <strong>Analisis:</strong> Jawaban benar adalah <strong>B</strong>. Penambahan jam: 13.15 + 3 jam = 16.15. Ditambah 20 menit = 16.35.
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Tombol Cek Kuis -->
+                <div class="mt-6 pt-4 border-t border-gray-200 flex flex-wrap justify-between items-center gap-4">
+                    <button onclick="submitQuiz()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl transition shadow-md text-sm flex items-center space-x-2">
+                        <i class="fa-solid fa-check-to-slot"></i>
+                        <span>Cek Jawaban & Analisis Numerasi</span>
+                    </button>
+                    <div id="quiz-result-box" class="hidden text-right">
+                        <span class="text-xs text-gray-500 block">Skor Kuis Anda:</span>
+                        <span id="quiz-score-display" class="text-xl font-bold text-emerald-600">0 / 5 (0%)</span>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-start">
+                    <button onclick="switchTab('game')" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold px-5 py-2.5 rounded-xl transition text-sm">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Kembali ke Mini-Game Angka
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-purple-100 py-4 mt-8 text-center text-xs text-gray-500">
+        <p>Media Pembelajaran Interaktif Bahasa Indonesia & Numerasi Kelas 7 Kurikulum Merdeka &copy; 2026</p>
+    </footer>
+
+    <!-- JavaScript Interaktif -->
+    <script>
+        // Navigasi Tab
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-white/20', 'text-white');
+                btn.classList.add('text-purple-200', 'hover:bg-white/10');
+            });
+
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if(activeBtn) {
+                activeBtn.classList.remove('text-purple-200', 'hover:bg-white/10');
+                activeBtn.classList.add('bg-white/20', 'text-white');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Data Mini-Game Numerasi Cerita
+        const gameStages = [
+            {
+                stageName: "Tantangan Numerasi 1: Waktu Tempuh Dimensi",
+                instruction: "Arka harus terbang sejauh 40 km menuju Pintu Gerbang Magis dengan kecepatan Gryphon 20 km/jam. Berapa jam waktu tempuh yang diperlukan Arka?",
+                options: [
+                    { text: "1 Jam", correct: false },
+                    { text: "2 Jam", correct: true },
+                    { text: "4 Jam", correct: false }
+                ],
+                explanation: "Tepat! Rumus waktu adalah Jarak ÷ Kecepatan = 40 km ÷ 20 km/jam = 2 jam."
+            },
+            {
+                stageName: "Tantangan Numerasi 2: Pengurangan Energi Kristal",
+                instruction: "Penyihir memiliki 120 butir batu kristal Chronos. Setiap melewati 1 lembah waktu, ia kehilangan 15 butir. Jika ia melewati 3 lembah, berapakah sisa batu kristal miliknya?",
+                options: [
+                    { text: "75 butir kristal", correct: true },
+                    { text: "90 butir kristal", correct: false },
+                    { text: "105 butir kristal", correct: false }
+                ],
+                explanation: "Hebat! Total kristal hilang = 3 × 15 = 45 butir. Sisa kristal = 120 - 45 = 75 butir."
+            },
+            {
+                stageName: "Tantangan Numerasi 3: Penjumlahan Durasi Ritual",
+                instruction: "Ritual membuka portal dimensi membutuhkan waktu persiapan 50 menit dan pembacaan mantra selama 40 menit. Berapa total menit waktu yang dibutuhkan?",
+                options: [
+                    { text: "70 menit (1 jam 10 menit)", correct: false },
+                    { text: "80 menit (1 jam 20 menit)", correct: false },
+                    { text: "90 menit (1 jam 30 menit)", correct: true }
+                ],
+                explanation: "Luar biasa! Total durasi = 50 + 40 = 90 menit sama dengan 1 jam 30 menit."
+            }
+        ];
+
+        let currentGameStage = 0;
+        let gameScore = 0;
+
+        fnLoadGameStage();
+
+        function fnLoadGameStage() {
+            if(currentGameStage >= gameStages.length) {
+                document.getElementById('game-container').classList.add('hidden');
+                document.getElementById('game-complete').classList.remove('hidden');
+                document.getElementById('game-score').innerText = gameScore;
+                return;
+            }
+
+            const current = gameStages[currentGameStage];
+            document.getElementById('game-progress').innerText = `${currentGameStage + 1} / ${gameStages.length}`;
+            document.getElementById('game-score').innerText = gameScore;
+            document.getElementById('game-stage-badge').innerText = current.stageName;
+            document.getElementById('game-instruction').innerText = current.instruction;
+            
+            const optionsEl = document.getElementById('game-options');
+            optionsEl.innerHTML = '';
+            
+            const feedbackEl = document.getElementById('game-feedback');
+            feedbackEl.classList.add('hidden');
+
+            current.options.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = "p-4 text-left bg-white rounded-xl border border-purple-200 hover:border-fantasy-600 hover:bg-purple-50 transition text-sm font-medium text-gray-800 shadow-sm flex items-center space-x-3";
+                btn.innerHTML = `<i class="fa-solid fa-calculator text-fantasy-600 text-lg"></i> <span>${opt.text}</span>`;
+                btn.onclick = () => handleGameAnswer(opt.correct, current.explanation);
+                optionsEl.appendChild(btn);
+            });
+        }
+
+        function handleGameAnswer(isCorrect, explanation) {
+            const feedbackEl = document.getElementById('game-feedback');
+            feedbackEl.classList.remove('hidden');
+            
+            if(isCorrect) {
+                gameScore += 35;
+                feedbackEl.className = "p-4 rounded-xl text-sm font-medium bg-emerald-100 border border-emerald-300 text-emerald-900";
+                feedbackEl.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-700 mr-2"><strong>Perhitungan Tepat!</strong> ${explanation}`;
+            } else {
+                feedbackEl.className = "p-4 rounded-xl text-sm font-medium bg-amber-100 border border-amber-300 text-amber-900";
+                feedbackEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-amber-700 mr-2"><strong>Kurang tepat.</strong> ${explanation}`;
+            }
+
+            const buttons = document.getElementById('game-options').querySelectorAll('button');
+            buttons.forEach(b => b.disabled = true);
+
+            setTimeout(() => {
+                currentGameStage++;
+                fnLoadGameStage();
+            }, 3500);
+        }
+
+        function resetGame() {
+            currentGameStage = 0;
+            gameScore = 0;
+            document.getElementById('game-container').classList.remove('hidden');
+            document.getElementById('game-complete').classList.add('hidden');
+            fnLoadGameStage();
+        }
+
+        // Evaluasi Kuis HOTS + Numerasi
+        function submitQuiz() {
+            const correctAnswers = [1, 0, 2, 1, 1]; // Indeks jawaban benar soal 0-4
+            let scoreCount = 0;
+
+            for(let i = 0; i < correctAnswers.length; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const explEl = document.getElementById(`expl-${i}`);
+                explEl.classList.remove('hidden');
+
+                if(selected && parseInt(selected.value) === correctAnswers[i]) {
+                    scoreCount++;
+                }
+            }
+
+            const percentage = Math.round((scoreCount / correctAnswers.length) * 100);
+            const resBox = document.getElementById('quiz-result-box');
+            const resDisplay = document.getElementById('quiz-score-display');
+            
+            resBox.classList.remove('hidden');
+            resDisplay.innerText = `${scoreCount} / ${correctAnswers.length} (${percentage}%)`;
+            
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+```
+eof
+
+---
+
+### Ringkasan Pembaruan:
+1. **Integrasi Numerasi Cerita (TKA):** Menambahkan skenario kuantitatif ke dalam literasi teks fantasi (perhitungan jarak, kecepatan terbang Gryphon, waktu tempuh, pengurangan kristal sihir, dan durasi jam ritual).
+2. **Mini-Game Angka & Waktu:** Mengubah tantangan mini-game menjadi simulasi pemecahan masalah numerasi cerita (*story-based numeracy*).
+3. **Kuis Formatif HOTS + Numerasi:** Memuat 5 soal pilihan ganda baru yang menggabungkan analisis struktur sastra fantasi dengan penalaran kuantitatif ala Asesmen Kompetensi Minimum (AKM/TKA) lengkap dengan pembahasan otomatis.
